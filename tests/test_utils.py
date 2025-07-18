@@ -1,6 +1,6 @@
 import pytest
 
-from voyagercpu.utils import *
+from rile.utils import *
 
 def test_abi_register_name_dict():
     #See: https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf

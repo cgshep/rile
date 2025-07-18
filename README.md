@@ -1,16 +1,10 @@
-# voyager-cpu
+# RILE: RISC-V Instruction-level Encryption Emulator
 
-<p>
-   <img alt="PyPI" src="https://img.shields.io/pypi/v/voyager-cpu?color=blue">
-   <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/voyager-cpu">
-   <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/voyager-cpu">
-   <img alt="PyPI - License" src="https://img.shields.io/pypi/l/voyager-cpu?label=license">
-</p>
-
-Voyager is a (very) experimental Python emulator of a 32-bit RISC-V core. It's built for research and education with simplicity in mind.
+RILE is a Python-based emulation of a RV32I CPU with instruction-level encryption derived from the Voyager CPU project.
 
 ## Features
 
++ (Ongoing) Integration of an encryption unit before the fetch stage.
 + Supports the RV32I ISA using a non-pipelined CPU with a single-cycle instruction fetch, decode, and execution stage.
 + A simple virtual RAM into which test programs (ELF binaries) are loaded.
   -  The [official RISC-V ISA tests](https://github.com/riscv-software-src/riscv-tests/) can be used for this purpose (see below).
@@ -27,7 +21,7 @@ git submodule update
 ```
 The binaries will be placed under `tests/riscv-tests-prebuilt-binaries/`. Alternatively, you can build the [test suites from the official repo](https://github.com/riscv-software-src/riscv-tests/).
 
-3. See the example in `src/voyagercpu/example.py`. You may run this directly using `python src/voyagercpu/example.py`.
+3. See the example in `src/rile/example.py`. You may run this directly using `python src/voyagercpu/example.py`.
 
 4. Enjoy!
 

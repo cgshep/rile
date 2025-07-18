@@ -29,7 +29,7 @@ class CPU:
     def reset_regs(self) -> dict:
         return { i: 0 for i, _ in enumerate(register_names()) }
 
-    def __fetch(self, memory):
+    def _fetch(self, memory):
         raw_inst = memory.read(self.regfile[PC_REG_INDEX],
                                INST_ALIGN)
         logger.debug(f"Fetched instruction: 0x{raw_inst.hex()}")
@@ -37,7 +37,7 @@ class CPU:
         raw_inst_bin = struct.unpack("<I", raw_inst)[0]
         return raw_inst_bin
 
-    def __decode(self, raw_inst: int) -> RVInst:
+    def _decode(self, raw_inst: int) -> RVInst:
         # No instruction
         if raw_inst == 0:
             logger.warning("No instruction!")
@@ -51,7 +51,7 @@ class CPU:
             logger.error("Using NOP instead")
             return nop_inst()
 
-    def __execute(self, inst: RVInst):
+    def _execute(self, inst: RVInst):
         if self.verbose:
             print(inst)
         mne = inst.mnemonic
@@ -156,9 +156,9 @@ class CPU:
 
     def next_cycle(self, memory):
         prev_pc = self.regfile[PC_REG_INDEX]
-        raw_inst = self.__fetch(memory)
-        decoded_inst = self.__decode(raw_inst)
-        self.__execute(decoded_inst)
+        raw_inst = self._fetch(memory)
+        decoded_inst = self._decode(raw_inst)
+        self._execute(decoded_inst)
 
         # Confirm that the PC is aligned at a multiple of 4
         if self.regfile[PC_REG_INDEX] & 0b11:

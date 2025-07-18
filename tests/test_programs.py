@@ -1,5 +1,5 @@
-from voyagercpu.cpu import CPU
-from voyagercpu.memory import Memory
+from rile.cpu import CPU
+from rile.memory import Memory
 
 
 def run_program(program, max_cycles=1000):

@@ -1,6 +1,6 @@
 import pytest
 
-from voyagercpu.decoder import *
+from rile.decoder import *
 
 def test_decode_instruction_type():
     # jal x0, 72
