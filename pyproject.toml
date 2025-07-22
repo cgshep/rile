@@ -24,7 +24,8 @@ classifiers = [
 ]
 
 dependencies = [
-    "elftools >= 0.29"
+    "elftools >= 0.29",
+    "pyascon"
 ]
 
 [project.urls]
