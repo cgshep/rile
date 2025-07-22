@@ -3,12 +3,12 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "voyager-cpu"
-version = "0.2.4"
+name = "rile"
+version = "0.1"
 authors = [
   { name="Carlton Shepherd", email="carlton@linux.com" },
 ]
-description = "A simple 32-bit RISC-V CPU emulator"
+description = "An instruction-level encryption prototyping framework"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.7"
@@ -24,13 +24,13 @@ classifiers = [
 ]
 
 dependencies = [
-    "elftools >= 0.29",
-    "pyascon"
+    "pyelftools >= 0.29",
+    "ascon"
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/cgshep/voyager-cpu"
-"Bug Tracker" = "https://github.com/cgshep/voyager-cpu/issues"
+"Homepage" = "https://github.com/cgshep/rile"
+"Bug Tracker" = "https://github.com/cgshep/rile/issues"
 
 [project.optional-dependencies]
 tests = [
