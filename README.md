@@ -4,7 +4,7 @@ RILE is a Python-based emulation of a RV32I CPU with instruction-level encryptio
 
 ## Features
 
-+ (Ongoing) Integration of an encryption unit before the fetch stage.
++ Integrates encryption/decryption of encrypted instructions in memory at the fetch stage.
 + Supports the RV32I ISA using a non-pipelined CPU with a single-cycle instruction fetch, decode, and execution stage.
 + A simple virtual RAM into which test programs (ELF binaries) are loaded.
   -  The [official RISC-V ISA tests](https://github.com/riscv-software-src/riscv-tests/) can be used for this purpose (see below).
@@ -33,6 +33,5 @@ The binaries will be placed under `tests/riscv-tests-prebuilt-binaries/`. Altern
 + Implement some ISA extensions, e.g. the M and C specifications.
 + Add pipelining and privileged mode.
 + Improve pretty printing.
-+ Etc.
 
 Please contribute!
