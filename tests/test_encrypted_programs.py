@@ -7,10 +7,10 @@ from rile.crypto import (
     decrypt_instruction,
     encrypt_program,
     decrypt_program,
-    CT_SIZE,                 # 20 B per encrypted instruction :contentReference[oaicite:0]{index=0}
+    CT_SIZE,                 # 20 B per encrypted instruction 
 )
 from rile.cpu import CPU
-from rile.encrypted_cpu import EncryptedCPU        # :contentReference[oaicite:1]{index=1}
+from rile.encrypted_cpu import EncryptedCPU
 from rile.memory import Memory
 
 # --- helpers ---------------------------------------------------------------
