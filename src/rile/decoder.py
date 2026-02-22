@@ -340,10 +340,8 @@ def decode_instruction(inst: int) -> RVInst:
             mnemonic = Instruction.BGE
         elif funct3 == Funct3.BLTU:
             mnemonic = Instruction.BLTU
-            imm_signed = False
         elif funct3 == Funct3.BGEU:
             mnemonic = Instruction.BGEU
-            imm_signed = False
         else:
             raise DecodeError("Invalid branch instruction!")
     elif opcode == Opcode.LOAD:
@@ -356,10 +354,8 @@ def decode_instruction(inst: int) -> RVInst:
             mnemonic = Instruction.LW
         elif funct3 == Funct3.LBU:
             mnemonic = Instruction.LBU
-            imm_signed = False
         elif funct3 == Funct3.LHU:
             mnemonic = Instruction.LHU
-            imm_signed = False
         else:
             raise DecodeError("Invalid load instruction!")
     elif opcode == Opcode.STORE:
@@ -380,7 +376,6 @@ def decode_instruction(inst: int) -> RVInst:
             mnemonic = Instruction.SLTI
         elif funct3 == Funct3.SLTIU:
             mnemonic = Instruction.SLTIU
-            imm_signed = False
         elif funct3 == Funct3.XORI:
             mnemonic = Instruction.XORI
         elif funct3 == Funct3.ORI:
@@ -405,6 +400,8 @@ def decode_instruction(inst: int) -> RVInst:
                 mnemonic = Instruction.ADD
             elif funct7 == Funct7.SUB:
                 mnemonic = Instruction.SUB
+            else:
+                raise DecodeError("Invalid funct7 for ADD/SUB!")
         elif funct3 == Funct3.SLL:
             mnemonic = Instruction.SLL
         elif funct3 == Funct3.SLT:
@@ -418,6 +415,8 @@ def decode_instruction(inst: int) -> RVInst:
                 mnemonic = Instruction.SRL
             elif funct7 == Funct7.SRA:
                 mnemonic = Instruction.SRA
+            else:
+                raise DecodeError("Invalid funct7 for SRL/SRA!")
         elif funct3 == Funct3.OR:
             mnemonic = Instruction.OR
         elif funct3 == Funct3.AND:
@@ -429,7 +428,7 @@ def decode_instruction(inst: int) -> RVInst:
         if funct3 == Funct3.FENCE:
             mnemonic = Instruction.FENCE
         elif funct3 == Funct3.FENCE_I:
-            mnemonic = Instruction.FENCE.I
+            mnemonic = Instruction.FENCE_I
         else:
             raise DecodeError("Invalid fence instruction!")
     elif opcode == Opcode.SYSTEM:
