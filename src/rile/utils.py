@@ -44,13 +44,13 @@ def int_to_hex_str(val: int,
     # Get the hex string of val and pad it with a leading
     # zero if its length isn't even
     val_hex_str = hex(val)[2:]
-    if val_hex_str % 2 != 0:
+    if len(val_hex_str) % 2 != 0:
         val_hex_str = "0" + val_hex_str
 
     if endian == "big":
         return prefix + val_hex_str
     elif endian == "little":
         return prefix + "".join(
-            reversed([a[i:i+2] for i in range(0, len(a), 2)]))
+            reversed([val_hex_str[i:i+2] for i in range(0, len(val_hex_str), 2)]))
     else:
         raise ValueError("Endian must be \"little\" or \"big\"!")

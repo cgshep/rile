@@ -14,6 +14,8 @@ class Memory:
         return ram_str
 
     def write(self, data: bytes, addr=0):
+        if addr < 0 or addr + len(data) > self.ram_size:
+            raise ValueError(f"Write out of bounds: addr={addr}, len={len(data)}, ram_size={self.ram_size}")
         self.ram[addr:addr+len(data)] = data
 
     def load_program(self, data, addr=0):
@@ -26,6 +28,8 @@ class Memory:
         self.write(b, addr)
 
     def read(self, start_idx, length=1):
+        if start_idx < 0 or start_idx + length > self.ram_size:
+            raise ValueError(f"Read out of bounds: addr={start_idx}, len={length}, ram_size={self.ram_size}")
         return self.ram[start_idx:start_idx+length]
 
     def dump(self):
